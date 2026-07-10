@@ -42,11 +42,11 @@ By the end of this guide, you will be able to:
 > [!TIP]
 > New to networking? Don't worry! Every concept will be explained step by step.
 - - -
-# chapter_one : gitting started 
+# chapter_one : Gitting started 
 Why i am learning this ?
 Before learning networking concepts, let's become familiar with the NetPractice environment. In this chapter, you'll learn how to access the project, navigate the interface.
 
-### 🌐 What is the NetPractice Website?
+## 🌐 What is the NetPractice Website?
 NetPractice is an interactive web-based learning platform developed by **42 School** to help students understand the fundamentals of computer networking through practical exercises.
 The website contains **10 networking levels**, each presenting a different network topology with one or more configuration problems.
 Your task is to analyze each network, identify the issue, and correctly configure elements such as IP addresses, subnet masks, gateways, and routing tables until all devices can communicate successfully.
@@ -66,17 +66,18 @@ NetPractice allows you to learn by solving real networking scenarios in an inter
 - ▼
 - Open http://localhost:49242
 - ▼
-NetPractice Interface
+- NetPractice Interface
 
 > [!IMPORTANT]
 > Keep the terminal running while using NetPractice. Closing it will stop the local web server.
 >  
-- <img width="284" height="403" alt="image" src="https://github.com/user-attachments/assets/02fe6cf0-8c47-421e-92e5-bb140ffe5593" />
+-
+   <img width="284" height="403" alt="image" src="https://github.com/user-attachments/assets/02fe6cf0-8c47-421e-92e5-bb140ffe5593" />
 - enter your 42 login
 - ▼
 - <img width="941" height="432" alt="image" src="https://github.com/user-attachments/assets/3bd45680-170f-4594-96ee-12dbf2b98e36" />
 
-### net practice interface :
+## net practice interface :
 - 1|| network >> The main area where you'll solve each NetPractice level.
   This is where all network devices, connections, and configurations are displayed.
 - 3|| Goals >> Lists the objectives that must be completed to solve the current level ,A level is considered solved **only when all goals are marked** as **OK** 
@@ -87,7 +88,50 @@ NetPractice Interface
 
 # 🌐 Chapter 2 — Computer Networks
 
+## What Is a Nomputer Network ?
+- "A network is a group of two or more devices, like computers, phones, or printers, that are connected together to share information, data, and resources. These devices can be linked using wires, such as cables and fibre optics, or wirelessly through Wi-Fi and other technologies. The main purpose of a network is to allow these devices to communicate with each other easily and quickly. 
+Networks can be small, like those in a home or school, or very large, like the internet, which connects millions of devices worldwide. By connecting devices, networks make it possible to share files, use shared printers, and access the internet, making our daily tasks simpler and more efficient."
 
+### Types Of network:
+- LAN ( Personal Area Network ):it is used for short range communication between personal devices , such as bluethooth or  earbuds , it's range around (1 to 10) m , that mean if dectence between you personal devices becom more than 10 metter you will loss the connection .
+- PAN( Local Area Network ): network that connect devices on local area such as home , office or mapy small campus. 
+- MAN( Metropolitan Area Network ):connect "" muliple network "" togather it is  can cover city .  
+- WAN( Wide Area Network ) :A WAN connects networks over large geographical areas such as countries.
+
+- How Does Communication Happen Between Two Devices? To answer this question, we first need to understand the basic elements of a computer network.
+# 🖥️ Network devices 
+Imagine you want to send a message to your friend.
+A few seconds later, your friend receives it.
+But how did your message travel from your device to your friend's device?
+
+To answer this question, we first need to understand the basic network devices that make communication possible.
+[!NOTE]
+In NetPractice, you will mainly work with hosts, switches, routers, and the default gateway. You will also learn how these devices communicate through the Internet, which is a global network connecting millions of smaller networks.
+## Nodes
+nodes : A node is any device connected to a network that can send, receive, or forward data.
+it is can classify into two branch :
+### end devices (Hosts) :
+
+End devices (also called **hosts**) are the devices where network communication starts or ends. They send data, receive data, or both.
+as printer , pc , smartphone ...
+### Intermediate Devices (Network Devices)
+
+Intermediate devices connect end devices and forward data from one device to another.
+In NetPractice, we mainly focus on the following network components:
+#### Switches
+#### Routers
+#### Default Gateway
+
+## Transmission Media
+Transmission Media can be wired or wireless :
+### wired media :
+using ( fiber , coaxil , USB or others )
+### wireless media :
+using (satellite , microwaves , radio or others)
+
+# RESOURCES 
+- [https://study-ccna.com/what-is-a-network/](https://www.msoftserv.com)
+- 
 
   
 
