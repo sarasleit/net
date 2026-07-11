@@ -106,7 +106,7 @@ But how did your message travel from your device to your friend's device?
 
 To answer this question, we first need to understand the basic network devices that make communication possible.
 > [!NOTE]
-> In NetPractice, you will mainly work with hosts, switches, routers, and the default gateway. You will also learn how these devices communicate through the Internet, which is a global network > connecting millions of smaller networks.
+> In NetPractice, you will mainly work with hosts, switches, routers, and the default gateway. You will also learn how these devices communicate through the Internet, which is a global network connecting millions of smaller networks.
 ## Nodes
 nodes : A node is any device connected to a network that can send, receive, or forward data.
 it is can classify into two branch :
