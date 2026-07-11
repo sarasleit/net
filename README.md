@@ -57,14 +57,15 @@ NetPractice allows you to learn by solving real networking scenarios in an inter
 -  ▼ 
 -  Extract the archive.
 -  ▼
-- Run run.sh (Linux/macOS)
+- Run **./run.sh** in terminal (Linux/macOS)
 - ▼
 - Open Browser
+- ▼
 - if it does not work
 - ▼
-- in terminal python -m http.server 49242
+- in terminal **python -m http.server 49242**
 - ▼
-- Open http://localhost:49242
+- Open your browse and search **http://localhost:49242**
 - ▼
 - NetPractice Interface
 
@@ -83,7 +84,8 @@ NetPractice allows you to learn by solving real networking scenarios in an inter
 - 3|| Goals >> Lists the objectives that must be completed to solve the current level ,A level is considered solved **only when all goals are marked** as **OK** 
 - 2|| Logs Panel >> Displays the simulation output after pressing **Check Again** ,it shows whether communication succeeds or fails and provides hints about the problem.
 - 4|| Check Again >> Runs the simulation and checks whether your current configuration is correct.
-- 5|| Get my config >> Restores your personal configuration if you've modified or not .
+- 5|| Get my config >> to download your configuration whenever you need to; you will need it
+when submitting your assignment.
 <img width="949" height="429" alt="image" src="https://github.com/user-attachments/assets/46d64a85-775b-4a38-8817-e5f6047b7f00" />
 
 # 🌐 Chapter 2 — Computer Networks
