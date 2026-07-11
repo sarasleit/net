@@ -110,32 +110,39 @@ To answer this question, we first need to understand the basic network devices t
 ## Nodes
 nodes : A node is any device connected to a network that can send, receive, or forward data.
 it is can classify into two branch :
-### end devices (Hosts) :
-
-End devices (also called **hosts**) are the devices where network communication starts or ends. They send data, receive data, or both.
-as printer , pc , smartphone ...
-### Intermediate Devices (Network Devices)
-
-Intermediate devices connect end devices and forward data from one device to another.
-In NetPractice, we mainly focus on the following network components:
-#### Switches
-- What Is Switch ?A switch is a networking device used to connect numerous networkable devices together, this can include: PC's, servers, printers, routers and other switches, allows multiple devices to be connected within a local area network (LAN).
-#### Routers
-- A router is a networking device that forwards data packets between different computer networks. It connects multiple packet-switched networks or subnetworks, managing traffic by directing packets to their intended IP addresses. Routers allow multiple devices to share an Internet connection efficiently.
-- How Does a Router Work?
-    Routers determine the path for a packet by examining its destination IP address and consulting the routing table, which contains information on network paths. They use a set of rules to identify the most efficient route for each packet.
-    Static routing: Configured manually, suitable for small or stable networks.
-    Dynamic routing: Automatically updated based on network activity, ideal for large or changing networks.
-- Routing: Determines the optimal path for packets using routing tables and algorithms
-#### Default Gateway
-- When Default Gateway is Used:
- when the source wants to reach a destination which is outside its network then, the source uses the default gateway to forward the data and locate the destination's network so that data should reach its intended destination. The default gateways are  used when the host doesn't know about the destination's network i.e. the network in which the destination is present or when the route information is not available for any destination then it goes to the default gateway so that it can identify in     which network the destination is and can forward the data through that route. The default gateway is an important device for the data forwarding and routing of the data on the other network. It helps in the communication of one network computer with  the other network computer. 
+   ### end devices (Hosts) :
+   End devices (also called **hosts**) are the devices where network communication starts or ends. They send data, receive data, or both.
+   as printer , pc , smartphone ...
+   ### Intermediate Devices (Network Devices)
+   Intermediate devices connect end devices and forward data from one device to another.
+   In NetPractice, we mainly focus on the following network components:
+   #### Switches
+   - What Is Switch ?A switch is a networking device used to connect numerous networkable devices together, this can include: PC's, servers, printers, routers and other switches, allows            multiple devices to be connected within a local area network (LAN).
+   #### Routers
+   - A router is a networking device that forwards data packets between different computer networks. It connects multiple packet-switched networks or subnetworks, managing traffic by directing    packets to their intended IP addresses. Routers allow multiple devices to share an Internet connection efficiently.
+  - How Does a Router Work?
+   Routers determine the path for a packet by examining its destination IP address and consulting the routing table, which contains information on network paths. They use a set of rules to        identify the most efficient route for each packet.
+   Static routing: Configured manually, suitable for small or stable networks.
+  Dynamic routing: Automatically updated based on network activity, ideal for large or changing networks.
+ - Routing: Determines the optimal path for packets using routing tables and algorithms
+  #### Default Gateway
+  - When Default Gateway is Used:
+  when the source wants to reach a destination which is outside its network then, the source uses the default gateway to forward the data and locate the destination's network so that data        should reach its intended destination. The default gateways are  used when the host doesn't know about the destination's network i.e. the network in which the destination is present or when    the route information is not available for any destination then it goes to the default gateway so that it can identify in     which network the destination is and can forward the data          through that route. The default gateway is an important device for the data forwarding and routing of the data on the other network. It helps in the communication of one network computer       with  the other network computer. 
 ## Transmission Media
 Transmission Media can be wired or wireless :
-### wired media :
-using ( fiber , coaxil , USB or others )
-### wireless media :
-using (satellite , microwaves , radio or others)
+   ### wired media :
+   using ( fiber , coaxil , USB or others )
+   ### wireless media :
+   using (satellite , microwaves , radio or others)
+ 
+# 📍Introduction to IP Addressing
+
+So far, we've learned about the devices that make up a computer network, such as hosts, switches, and routers.
+But here's an important question:
+> **How does one device know where to send data?**
+Imagine trying to send a letter without knowing the recipient's address. It would never reach the correct destination.
+Computer networks work in a similar way. Before two devices can communicate, each device must have its own unique address that identifies it on the network.
+This address is called an **IP Address**.
 
 # RESOURCES 
 - [https://study-ccna.com/what-is-a-network/](https://www.msoftserv.com)
