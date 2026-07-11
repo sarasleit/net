@@ -76,8 +76,11 @@ NetPractice allows you to learn by solving real networking scenarios in an inter
 - NetPractice Interface
 
 > [!IMPORTANT]
-> Keep the terminal running while using NetPractice. Closing it will stop the local web server.
->  
+> Keep the terminal window open while using NetPractice.
+>
+> Running `python3 -m http.server 49242` starts a **local web server** that serves the NetPractice files to your web browser.
+>
+> If you close the terminal, the local server will stop, and your browser will no longer be able to access the NetPractice website.
 -
    <img width="284" height="403" alt="image" src="https://github.com/user-attachments/assets/02fe6cf0-8c47-421e-92e5-bb140ffe5593" />
 - enter your 42 login
@@ -170,7 +173,7 @@ Transmission Media can be wired or wireless :
    ### wireless media :
    using (satellite , microwaves , radio or others)
  
-# 📍Introduction to IP Addressing
+# chapter 3 : Introduction to IP Addressing
 
 So far, we've learned about the devices that make up a computer network, such as hosts, switches, and routers.
 But here's an important question:
@@ -180,10 +183,342 @@ Imagine trying to send a letter without knowing the recipient's address. It woul
 Computer networks work in a similar way. Before two devices can communicate, each device must have its own unique address that identifies it on the network.
 This address is called an **IP Address**.
 
+## 📍 What Is an IP Address?
 
+**IP** stands for **Internet Protocol**.
+
+An **IP Address** is a unique **logical address** assigned to a device (or more precisely, a network interface) that communicates using the Internet Protocol (IP).
+
+Its primary purpose is to identify devices on a network and enable them to send and receive data correctly.
+
+### Why Is It Called a Logical Address?
+
+An IP address is called a **logical address** because it is not permanently tied to the device.
+
+It can be changed whenever the device joins a different network or when the network administrator assigns a new address.
+
+This flexibility allows devices to communicate correctly on different networks.
+## IPv4 (Internet Protocol Version 4)
+
+There are two versions of the Internet Protocol currently in use:
+
+- **IPv4 (Internet Protocol version 4)**
+- **IPv6 (Internet Protocol version 6)**
+
+ we'll focus on **IPv4**, since it is the version used throughout the **42 NetPractice** project.
+ 
+ ### **IPv4 Address**: An IPv4 address is a **32-bit logical address** assigned to a device on a network. It uniquely identifies the device and enables it to send and receive data using the Internet Protocol (IP).
+ ```text
+IPv4 Address
+
+32 bits = 4 byte
+4 Octets 
+each octet range 0-255
+[0-255].[0-255].[0-255].[0-255]
+```
+**IPv4 addresses can be represented in two notations:**
+
+- binary notation
+- dotted decimal notation
+**binary notation**
+  ```text
+  01100110.11011101.11011010.11000000
+  octet.octet.octet.octet
+  ```
+  **decimal notation**
+  ```text
+  192.168.20.50
+  octet.octet.octet.octet
+  ```
+### Rules for a Valid IPv4 Address
+
+For an IPv4 address to be valid, it must follow these rules:
+
+- It consists of **4 octets** separated by dots (`.`).
+- Each octet contains a decimal number between **0** and **255**.
+- Only numbers are allowed.
+- No octet can be greater than **255** or less than **0**.
+
+#### ✅ Valid Examples
+
+- `192.168.1.10`
+- `10.0.0.1`
+- `172.16.25.100`
+
+#### ❌ Invalid Examples
+
+- `256.168.1.10` → An octet is greater than **255**.
+- `192.168.1` → Missing one octet.
+- `192.168.1.10.5` → Too many octets.
+- `192.168.one.10` → Contains letters instead of numbers.
+- `192.-1.1.10` → Negative values are not allowed. 
+
+> Historically, IPv4 addresses were divided into **Classes (A, B, and C)** to allocate addresses according to network size. Today, this system has largely been replaced by **CIDR**, which provides more flexible and efficient address allocation.
+
+> [!NOTE]
+> An IPv4 address is **32 bits** long, which provides approximately **4.3 billion unique addresses** (2³²). As the number of Internet-connected devices grew rapidly, this address space became insufficient. To help overcome this limitation, private IP addresses and technologies such as **Network Address Translation (NAT)** were introduced, allowing many devices to share a single public IP address.
+> **NAT** (Network Address Translation) allows multiple devices in a private network to share a single public IP address when accessing the internet
+
+## Public vs Private IP Addresses 
+
+### Private IP Address
+Private IP Addresses are those addresses that work within the local network.
+- Used within a local or private network
+- Not routable on the public internet
+- Scope is limited to the local network
+- Requires NAT for internet access
+
+> [!IMPORTANT]
+> **Private IPv4 Address Ranges**
+>
+> - **10.0.0.0/8** → `10.0.0.0` – `10.255.255.255`
+> - **172.16.0.0/12** → `172.16.0.0` – `172.31.255.255`
+> - **192.168.0.0/16** → `192.168.0.0` – `192.168.255.255`
+>
+> These address ranges are reserved for **private networks** and **cannot be routed directly over the public Internet**.
+
+
+### Public IP Address
+- Used for communication over the internet
+- Routable on the public internet
+- Scope is global
+- Does not require NAT
+
+> [!NOTE]
+> Private IP addresses help conserve the limited IPv4 address space. Unlike public IP addresses, they **do not need to be globally unique**, which means the same private IP address can be reused in millions of different local networks around the world.
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/e5e30774-6901-4c49-809e-aff29f238e81" />
+
+# Chapter 5 — Subnet Mask
+
+## Introduction
+
+We learned that every device needs an **IP address** to communicate.
+
+But here's an important question:
+
+**How does a device know whether the destination is on the same network or on a different network?**
+
+Looking at the IP address alone is **not enough**.
+
+For example:
+
+- Device A → `192.168.1.10`
+- Device B → `192.168.1.50`
+
+Are they in the same network?
+
+Now consider:
+
+- Device A → `192.168.1.10`
+- Device B → `192.168.2.50`
+
+Are they in the same network?
+
+To answer these questions, we need another piece of information called the **Subnet Mask**.
+
+## What Is a Subnet?
+
+A **subnet** is a smaller logical network created by dividing a larger network into multiple smaller networks.
+> A subnet is a group of devices that can communicate directly without passing through a router.
+### Example
+
+Imagine you have a network that contains **256 IP addresses**, but you only need to connect **10 devices**.
+
+Without subnetting, the remaining **246 IP addresses** would be unused, resulting in inefficient use of the available address space.
+
+Subnetting solves this problem by dividing the large network into smaller networks, allowing each subnet to contain only the number of addresses it actually needs.
+
+## Why Do We Need a Subnet Mask?
+
+Subnet masks are used for several important reasons:
+
+- **Divide a large network into smaller subnets**, making the network easier to manage.
+- **Use IP addresses more efficiently** by creating networks that contain only the required number of hosts.
+- **Reduce broadcast traffic**, which improves network performance.
+- **Help devices determine whether the destination is on the same network or a different network.**
+- **Decide whether data should be sent directly to the destination or forwarded to a router (default gateway).**
+
+## How Does a Subnet Mask Work?
+
+A subnet mask works by dividing an IPv4 address into two logical parts:
+
+- **Network Portion** – Identifies the network.
+- **Host Portion** – Identifies the individual device.
+
+The subnet mask determines where the **network portion** ends and the **host portion** begins.
+
+> [!NOTE]
+> An IPv4 address consists of **4 octets (32 bits)**.
+>
+> Depending on the subnet mask, different numbers of bits are used for the network and host portions.
+>
+> The following examples are simplified representations:
+>
+> ```
+> N.N.N.H
+> N.N.H.H
+> N.H.H.H
+> ```
+>
+> **N** = Network Portion  
+> **H** = Host Portion
+>
+> In reality, the boundary is determined by **bits**, not necessarily by whole octets.
+
+If two devices have the same **network portion**, they belong to the same network and can communicate directly.
+
+If their **network portions** are different, the packet must be sent to the **default gateway (router)** so it can reach the destination network.
+
+## CIDR Notation
+
+Writing the full subnet mask every time can be inconvenient. To make it shorter and easier to read, a notation called **CIDR (Classless Inter-Domain Routing)** is used.
+
+Instead of writing:
+
+```
+255.255.255.0
+```
+
+we simply write:
+
+```
+/24
+```
+> [!NOTE]
+> The number after the slash (`/`) in CIDR notation indicates how many **bits** belong to the **network portion**.
+>
+> For example:
+>
+> ```
+> /24
+> ```
+>
+> means that the first **24 bits** of the **subnet mask** are `1`, and the remaining **8 bits** are `0`.
+>
+> ```
+> /24
+> ↓
+> 11111111.11111111.11111111.00000000
+> ↓
+> 255.255.255.0
+> ```
+>
+> The **1s** identify the **network portion**, while the **0s** identify the **host portion**.
+### Example: `/27`
+
+```
+CIDR:
+/27
+```
+
+The subnet mask is:
+
+```
+11111111.11111111.11111111.11100000
+```
+
+which is equal to:
+
+```
+255.255.255.224
+```
+
+The first **27 bits** belong to the **network portion**, while the remaining **5 bits** belong to the **host portion**.
+
+```
+11111111.11111111.11111111.11100000
+ NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNHHHHH
+```
+
+- **27 Network bits**
+- **5 Host bits**
+
+### Applying the Mask to an IP Address
+
+```
+IP_1 Address : 192.168.1.130/27
+IP_1 Address : 192.168.1.135/27
+Binary:
+IP_1
+11000000.10101000.00000001.10000010
+11111111.11111111.11111111.11100000
+-----------------------------------
+NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNHHHHH
+IP_2
+11000000.10101000.00000001.10000101
+11111111.11111111.11111111.11100000
+-----------------------------------
+NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNHHHHH
+```
+> [!NOTE]
+> Notice that after converting both IP addresses to binary, the **first 27 bits** (the network portion) are identical.
+>
+> Since both devices have the same **network portion**, they belong to the **same subnet** and can communicate directly without using a router.
+
+> [!EXAMPLE]
+> **IP Address 1:** `192.168.122.15`
+>
+> **IP Address 2:** `192.168.122.60`
+>
+> Assuming the subnet mask is **255.255.255.0 (/24)**, the first **24 bits** (the first three octets) represent the **network portion**, while the last **8 bits** represent the **host portion**.
+>
+> ```
+> 192.168.122.15
+> N.N.N.H
+>
+> 192.168.122.60
+> N.N.N.H
+> ```
+>
+> Since both IP addresses have the same **network portion**, they belong to the **same subnet**.
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/56638d16-61ad-4af9-9569-1c5c0ce3b53c" />
+## Number of Hosts
+
+The number of usable host addresses depends on the number of **host bits**.
+
+The formula is:
+
+```
+Usable Hosts = 2^(Host Bits) − 2
+```
+
+We subtract **2** because:
+
+- The **first address** is reserved as the **Network Address**.
+- The **last address** is reserved as the **Broadcast Address**.
+
+Therefore, neither of these addresses can be assigned to a host.
+
+### Example: /27
+
+```
+CIDR: /27
+
+Host Bits = 32 - 27 = 5
+
+Usable Hosts = 2^5 - 2 = 30
+```
+
+Subnet:
+
+```
+192.168.1.128/27
+```
+**Address**
+192.168.1.128  Network Address
+192.168.1.129 First Usable Host
+ 
+192.168.1.158 Last Usable Host 
+192.168.1.159 Broadcast Address 
+
+> [!TIP]
+> You can use an online **Subnet Calculator** to verify your calculations while learning.
+
+# AI USING
 # RESOURCES 
 - [https://study-ccna.com/what-is-a-network/](https://www.msoftserv.com)
-- 
+ 
 
   
 
