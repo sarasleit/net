@@ -173,7 +173,7 @@ Transmission Media can be wired or wireless :
    ### wireless media :
    using (satellite , microwaves , radio or others)
  
-# chapter 3 : Introduction to IP Addressing
+# Introduction to IP Addressing
 
 So far, we've learned about the devices that make up a computer network, such as hosts, switches, and routers.
 But here's an important question:
