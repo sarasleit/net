@@ -456,7 +456,7 @@ NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNHHHHH
 >
 > Since both devices have the same **network portion**, they belong to the **same subnet** and can communicate directly without using a router.
 
-> [!EXAMPLE]
+> 
 > **IP Address 1:** `192.168.122.15`
 >
 > **IP Address 2:** `192.168.122.60`
@@ -473,7 +473,8 @@ NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNHHHHH
 >
 > Since both IP addresses have the same **network portion**, they belong to the **same subnet**.
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/56638d16-61ad-4af9-9569-1c5c0ce3b53c" />
-## Number of Hosts
+
+### Number of Hosts
 
 The number of usable host addresses depends on the number of **host bits**.
 
@@ -514,6 +515,33 @@ Subnet:
 
 > [!TIP]
 > You can use an online **Subnet Calculator** to verify your calculations while learning.
+
+# Common Log Messages
+- **packet accepted** : The device has successfully received the packet and started processing it.
+- **invalid IP address** :The interface is configured with an invalid IP address. Check that the IP address is correctly formatted and belongs to the appropriate network.
+- **destination does not match any interface** : The destination IP **does not** belong to any network (directly connected) >> (in same network) to the current device.
+- **pass through routing table** : The device searches its routing table to find the best route to the destination. This is a normal step, not an error. this prosses done when two devices want to make comunication but thay are not belong in same network .
+- **invalid destination IP for this way** : The configured destination IP is not valid for this communication path. Verify the destination IP address and network configuration.
+- **loop detected** :The packet returned to a device that had already processed it, causing a forwarding loop or packet repetition.
+
+ > [!NOTE]
+> Routers route packets to **networks**, not individual hosts.
+>
+> For example, if a router connects the network:
+>
+> ```
+> 93.74.210.128/25
+> ```
+>
+> a single route to this network allows access to **every host** inside it:
+>
+> ```
+> 93.74.210.129
+> ...
+> 93.74.210.254
+> ```
+>
+> If a router connects multiple LANs, each LAN requires **one route** in the routing table—not one route for every device.
 
 # AI USING
 # RESOURCES 
