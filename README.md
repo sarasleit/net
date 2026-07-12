@@ -102,7 +102,7 @@ NetPractice allows you to learn by solving real networking scenarios in an inter
 when submitting your assignment.
 <img width="949" height="429" alt="image" src="https://github.com/user-attachments/assets/46d64a85-775b-4a38-8817-e5f6047b7f00" />
 
-# 🌐 Chapter 2 — Computer Networks
+# 🌐 Computer Networks
 
 ## What Is a Nomputer Network ?
 
@@ -289,7 +289,7 @@ Private IP Addresses are those addresses that work within the local network.
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/e5e30774-6901-4c49-809e-aff29f238e81" />
 
-# Chapter 5 — Subnet Mask
+# Subnet Mask
 
 ## Introduction
 
@@ -516,6 +516,68 @@ Subnet:
 > [!TIP]
 > You can use an online **Subnet Calculator** to verify your calculations while learning.
 
+#  OSI Model & TCP/IP Model
+
+Before learning how packets travel through a network, it's useful to understand the models that describe network communication.
+
+Both the **OSI Model** and the **TCP/IP Model** divide networking into layers. Each layer has a specific responsibility and works together with the others to deliver data from one device to another.
+
+---
+
+## OSI Model
+
+The **OSI (Open Systems Interconnection)** model is a conceptual framework that divides network communication into **7 layers**.
+
+| Layer | Name | Main Function |
+|------:|------|---------------|
+| 7 | Application | Provides network services to user applications. |
+| 6 | Presentation | Translates, encrypts, and compresses data. |
+| 5 | Session | Establishes, manages, and terminates communication sessions. |
+| 4 | Transport | Ensures reliable data delivery (TCP/UDP). |
+| 3 | Network | Handles logical addressing and routing (IP). |
+| 2 | Data Link | Transfers frames between devices on the same network (Ethernet, Switches). |
+| 1 | Physical | Transmits raw bits over cables or wireless media. |
+
+---
+
+## TCP/IP Model
+
+The **TCP/IP Model** is the networking model used on the Internet. It simplifies the OSI model into **4 layers**.
+
+| Layer | Main Function |
+|------|---------------|
+| Application | Provides services for applications such as HTTP, DNS, FTP, and SMTP. |
+| Transport | End-to-end communication using TCP or UDP. |
+| Internet | Logical addressing and routing using IP. |
+| Network Access | Physical transmission of data over the local network. |
+
+---
+
+## OSI vs TCP/IP
+
+| OSI | TCP/IP |
+|------|---------|
+| Application | Application |
+| Presentation | Application |
+| Session | Application |
+| Transport | Transport |
+| Network | Internet |
+| Data Link | Network Access |
+| Physical | Network Access |
+
+The TCP/IP model combines several OSI layers, making it simpler and more practical for real-world networking.
+
+---
+
+## Which Layers Does NetPractice Use?
+
+The **42 NetPractice** project mainly focuses on the following layers:
+
+- **Layer 2 (Data Link):** Switches and local network communication.
+- **Layer 3 (Network):** IP addresses, subnet masks, routers, gateways, and routing tables.
+
+The upper layers (Transport, Session, Presentation, and Application) are not part of the NetPractice exercises.
+
 # Common Log Messages
 - **packet accepted** : The device has successfully received the packet and started processing it.
 - **invalid IP address** :The interface is configured with an invalid IP address. Check that the IP address is correctly formatted and belongs to the appropriate network.
@@ -543,12 +605,16 @@ Subnet:
 >
 > If a router connects multiple LANs, each LAN requires **one route** in the routing table—not one route for every device.
 
-# AI USING
 # RESOURCES 
-- [https://study-ccna.com/what-is-a-network/](https://www.msoftserv.com)
- 
+- Geeks For Geeks
+- Computer Network _ Neso academy
 
-  
+# AI Assistance
+
+AI tools were used to:
+
+- Generate some of the illustrations and diagrams used in this README.
+- Suggest learning resources and references.
 
 
 
