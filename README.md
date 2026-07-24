@@ -1,8 +1,11 @@
 *This activity has been created as part of the 42 curriculum by ssleit*
 - - - 
+
 # 🌐 NetPractice
 Welcome to the **NetPractice** guide!
-- - - 
+- - -
+<img width="1774" height="887" alt="netpractice_social_preview_under_1_2MB" src="https://github.com/user-attachments/assets/289d55c2-533c-4b19-966b-c802a8038521" />
+
 # Introduction
 This repository is designed to help beginners understand the fundamentals of computer networking through the **42 School NetPractice** project.
 
@@ -46,7 +49,7 @@ By the end of this guide, you will be able to:
 > [!TIP]
 > New to networking? Don't worry! Every concept will be explained step by step.
 - - -
-# chapter_one : Gitting started 
+# Gitting started 
 
 Why i am learning this ?
 
